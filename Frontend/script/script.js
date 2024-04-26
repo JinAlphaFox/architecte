@@ -37,18 +37,7 @@ function affichageGallery(table) {
 
 };
 
-async function affichageDynamique() {
-
-    // récupération de la bdd
-    const reponseWorks = await fetch("http://localhost:5678/api/works");
-    const reponseCategories = await fetch("http://localhost:5678/api/categories");
-    const works = await reponseWorks.json();
-    const categories = await reponseCategories.json();
-
-    
-    const buttonList = [];
-
-    // récupération et création du DOM
+function affichageBoutons(categories, buttonList) {
     const categoriesDiv = document.querySelector(".categories");
     const h3 = document.createElement("h3");
     let buttonTous = document.createElement("button");
@@ -60,9 +49,7 @@ async function affichageDynamique() {
     h3.appendChild(buttonTous);
     categoriesDiv.appendChild(h3);
     buttonList.push(buttonTous);
-    
-    
-    // création dynamique des boutons
+
     for (let i = 0 ; i < categories.length ; i++) {
         const h3 = document.createElement("h3");
         let buttonElement = document.createElement("button");
@@ -73,6 +60,22 @@ async function affichageDynamique() {
         categoriesDiv.appendChild(h3);
         buttonList.push(buttonElement);
     };
+
+    return buttonList;
+
+}
+
+async function affichageDynamique() {
+
+    // récupération de la bdd
+    const reponseWorks = await fetch("http://localhost:5678/api/works");
+    const reponseCategories = await fetch("http://localhost:5678/api/categories");
+    const works = await reponseWorks.json();
+    const categories = await reponseCategories.json();
+    
+    // création dynamique des boutons
+    let buttonList = [];
+    buttonList = affichageBoutons(categories, buttonList);
     
     // création dynamique de la gallery
     affichageGallery(works);

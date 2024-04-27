@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: rgba(255, 254, 248, 1);
 }
 ol, ul {
 	list-style: none;
@@ -203,9 +204,61 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	font-weight: bold;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
 }
 
+/***** login page ****/
+.section-login {
+	padding-top: 150px;
+	padding-bottom: 150px;
+	width: 379px;
+	margin: auto;
+}
+
+.form-login {
+	display: flex;
+	flex-direction: column;
+}
+
+.section-login h2,
+.section-login p {
+	text-align: center;
+}
+
+.form-login label {
+	margin: 2em 0 1em 0;
+}
+
+.form-login input[type="text"],
+.form-login input[type="password"] {
+	width: 100%;
+	height: 51px;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
+	background-color: white;
+
+}
+
+.form-login input[type="submit"] {
+	height: 36px;
+}
+
+.form-login input[type="submit"]:hover {
+	cursor: pointer;
+}
+
+.section-login p {
+	text-decoration: underline;
+}

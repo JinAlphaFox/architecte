@@ -85,4 +85,17 @@ async function affichageDynamique() {
 
 };
 
+function connected() {
+    var tokenStorage = sessionStorage.getItem("token");
+    console.log(tokenStorage)
+
+    if(tokenStorage !== null) {
+        console.log("coucou")
+    }else{
+        console.log("raté")
+    }
+}
+
 affichageDynamique();
+
+connected();

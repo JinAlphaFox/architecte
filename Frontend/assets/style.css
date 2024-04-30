@@ -225,6 +225,9 @@ footer nav ul {
 	padding-bottom: 150px;
 	width: 379px;
 	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
 .form-login {
@@ -259,6 +262,10 @@ footer nav ul {
 	cursor: pointer;
 }
 
-.section-login p {
+.section-login p a {
 	text-decoration: underline;
+}
+
+.result-login {
+	font-weight: bold;
 }

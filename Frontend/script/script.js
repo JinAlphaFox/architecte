@@ -106,7 +106,6 @@ async function supprimerImage(imageId) {
         });
 
         if (response.ok) {
-            console.log(`Image avec l'ID ${imageId} supprimée avec succès.`);
             // Optionnel: Réafficher la galerie après suppression
             const works = await (await fetch("http://localhost:5678/api/works")).json();
             affichageDynamique(true);
@@ -327,7 +326,6 @@ function modifyTit(event) {
 };
 
 function modifyCat(event) {
-    console.log(event.target.value)
     if (event.target.value.trim() !== "") {
         photoCheckCat = true;
         checkValidationDisabled();
@@ -335,10 +333,6 @@ function modifyCat(event) {
 };
 
 function checkValidationDisabled() {
-
-    console.log(photoCheckImg)
-    console.log(photoCheckTit)
-    console.log(photoCheckCat)
 
     if(photoCheckImg === true && photoCheckTit === true && photoCheckCat === true) {
         const buttonBottomModal = document.querySelector(".btn-validerPhoto");
@@ -369,7 +363,6 @@ function validerPhoto() {
     })
     .then(response => {
         // Réponse du serveur
-        console.log("Envoi réussi !")
         const divModal = document.querySelector(".contenuDynamique");
         divModal.innerHTML = "";
         const titleModal = document.createElement("h1");

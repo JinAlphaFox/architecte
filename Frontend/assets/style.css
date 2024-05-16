@@ -209,8 +209,10 @@ a {
 	color: black;
 }
 
-a:hover {
+a:hover,
+.lienLog:hover {
 	font-weight: bold;
+	cursor: pointer;
 }
 
 footer nav ul {
@@ -268,4 +270,208 @@ footer nav ul {
 
 .result-login {
 	font-weight: bold;
+}
+
+/**** mode Edition ***/
+
+.editionMode {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 60px;
+	background-color: black;
+	color: white;
+}
+
+#portfolio h2 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#portfolio h2 a {
+	margin-left: 30px;
+	font-size: 14px;
+}
+
+/***** modale ***/
+
+.modal {
+    position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    top : 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+	display: none;
+}
+
+.modal-wrapper {
+	width: 630px;
+	height: 688px;
+	max-width: 100vw;
+	max-height: 100vh;
+	overflow: auto;
+	background-color: #FFF;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.divButtons {
+	display: flex;
+	justify-content: right;
+	flex-direction: row;
+}
+
+.divButtons button {
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	padding: 20px;
+	font-weight: bold;
+	font-size: large;
+}
+
+.contenuDynamique {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#titleModal {
+	color: black;
+	font-size: 26px;
+	font-weight: lighter;
+	padding: 30px;
+	font-family: 'Work Sans';
+}
+
+.tousTravaux,
+.ajoutTravaux {
+	width: 420px;
+	height: 420px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin: auto;
+	overflow: auto;
+	border-bottom: 1px solid rgba(179, 179, 179, 1);
+}
+
+.tousTravaux figure {
+	width: 19%;
+	height: 102px;
+}
+
+.tousTravaux figure img {
+	width: 100%;
+	height: 100%;
+}
+
+.tousTravaux figure button {
+	position: relative;
+	top: -100px;
+	left: 58px;
+	background-color: black;
+	width: 17px;
+	height: 17px;
+	border-radius: 2px;
+	color: white;
+	padding: 0;
+	border: none;
+}
+
+.tousTravaux figure button i {
+	font-size: x-small;
+}
+
+.ajoutTravaux form {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: left;
+	gap: 10px;
+}
+
+.divImageModal {
+	width: 100%;
+	height: 169px;
+	background-color: rgba(232, 241, 246, 1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+#inputNewImage {
+	/*opacity: 0;*/
+	display: none;
+}
+
+.fa-image {
+	font-size: 76px;
+	color: rgba(185, 197, 204, 1);
+}
+
+label[for="inputNewImage"] {
+	background-color: rgba(203, 214, 220, 1);
+	width: 173px;
+	height: 36px;
+	border-radius: 50px;
+	color: rgba(48, 102, 133, 1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.divImageModal p {
+	color: rgba(68, 68, 68, 1);
+	font-size: 10px;
+}
+
+.divForm {
+	width: 99%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#inputTitle,
+#selectCategorie {
+	height: 51px;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+	border: none;
+}
+
+.btn-ajoutPhoto,
+.btn-validerPhoto {
+	width: 237px;
+	height: 36px;
+	border-radius: 60px;
+	text-align: center;
+	margin: 30px;
+	background-color: rgba(29, 97, 84, 1);
+	color: white;
+	border: none;
+}
+
+.uploadedImage {
+	height: 100%;
+}
+
+.ajoutReussi {
+	color: green;
 }

@@ -34,8 +34,6 @@ function login() {
                 resultSection.style.color = "red";
                 break;
             case 200 :
-                resultSection.innerHTML = `Connection réussie => <a href=index.html>Retour à l'accueil</a>`;
-                resultSection.style.color = "green";
                 sessionStorage.setItem("token", log.token);
                 window.location="index.html";
                 break;

@@ -418,8 +418,13 @@ function previewImageUpload(event) {
 function modifyTit(event) {
     // Vérifie si la valeur du champ n'est pas vide après avoir supprimé les espaces
     if (event.target.value.trim() !== "") {
-        // Met à jour le drapeau photoCheckTit pour indiquer qu'un titre a été entré
+        // Met à jour la variable photoCheckTit pour indiquer qu'un titre a été entré
         photoCheckTit = true;
+        // Vérifie si toutes les conditions de validation sont remplies
+        checkValidationDisabled();
+    }else {
+        // Met à jour la variable photoCheckTit pour indiquer qu'un titre à été supprimer
+        photoCheckTit = false;
         // Vérifie si toutes les conditions de validation sont remplies
         checkValidationDisabled();
     }
@@ -433,21 +438,34 @@ function modifyCat(event) {
         photoCheckCat = true;
         // Vérifie si toutes les conditions de validation sont remplies
         checkValidationDisabled();
+    }else {
+        // Met à jour la variable photoCheckCat pour indiquer qu'une catégorie a été désélectionnée
+        photoCheckCat = false;
+        // Vérifie si toutes les conditions de validation sont remplies
+        checkValidationDisabled();
     }
 };
 
 // Fonction pour vérifier si les conditions de validation sont remplies pour activer le bouton de validation
 function checkValidationDisabled() {
+    // Récupère le bouton de validation
+    const buttonBottomModal = document.querySelector(".btn-validerPhoto");
     // Vérifie si les drapeaux indiquant que l'image, le titre et la catégorie sont valides sont tous vrais
     if (photoCheckImg === true && photoCheckTit === true && photoCheckCat === true) {
-        // Récupère le bouton de validation
-        const buttonBottomModal = document.querySelector(".btn-validerPhoto");
         // Active le bouton de validation en le rendant cliquable
         buttonBottomModal.disabled = false;
         // Change la couleur de fond du bouton pour indiquer qu'il est activé
         buttonBottomModal.style.backgroundColor = "rgba(29, 97, 84, 1)";
         // Ajoute un écouteur d'événements pour déclencher la fonction de validation lorsque le bouton est cliqué
         buttonBottomModal.addEventListener("click", () => validerPhoto());
+    }else {
+        // Désactive le bouton de validation
+        buttonBottomModal.disabled = true;
+        // Change la couleur de fond du bouton pour indiquer qu'il est désactivé
+        buttonBottomModal.style.backgroundColor = "rgba(167, 167, 167, 1)";
+        // Supprime l'écouteur d'événements
+        buttonBottomModal.removeEventListener("click", () => validerPhoto());
+
     }
 };
 
@@ -475,13 +493,8 @@ function validerPhoto() {
     })
     .then(response => {
         // Gestion de la réponse du serveur
-        const divModal = document.querySelector(".contenuDynamique");
-        divModal.innerHTML = "";
-        const titleModal = document.createElement("h1");
-        titleModal.id = "titleModal";
-        titleModal.innerHTML = "Ajout Photo";
-        divModal.appendChild(titleModal);
-        divModal.innerHTML += `<p class="ajoutReussi">Ajout de la photo ${titrePhoto} réussi !</p>`;
+        // Rafraîchissement de la Modal avec la nouvelle photo
+        remplissageModal("gallery");
         // Rafraîchissement de l'affichage dynamique pour mettre à jour la galerie
         affichageDynamique();
     })
